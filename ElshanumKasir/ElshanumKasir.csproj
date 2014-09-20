@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data">
+      <HintPath>..\packages\MySql.Data.6.9.3\lib\net45\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -50,8 +53,24 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Barang.cs" />
+    <Compile Include="Model\Kategori.cs" />
+    <Compile Include="Model\Member.cs" />
+    <Compile Include="Model\Pelanggan.cs" />
+    <Compile Include="Model\Pembelian.cs" />
+    <Compile Include="Model\PembelianDetail.cs" />
+    <Compile Include="Model\Pengguna.cs" />
+    <Compile Include="Model\Penjualan.cs" />
+    <Compile Include="Model\PenjualanDetail.cs" />
+    <Compile Include="Model\Permission.cs" />
+    <Compile Include="Model\Role.cs" />
+    <Compile Include="Model\Supplier.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\BarangDao.cs" />
+    <Compile Include="Repository\KategoriDao.cs" />
+    <Compile Include="Service\BarangService.cs" />
+    <Compile Include="Service\KategoriService.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -61,6 +80,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

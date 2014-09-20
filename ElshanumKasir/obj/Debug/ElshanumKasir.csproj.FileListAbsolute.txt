@@ -1,1 +1,10 @@
 c:\users\agung setiawan\documents\visual studio 2013\Projects\ElshanumKasir\ElshanumKasir\bin\Debug\ElshanumKasir.exe.config
+C:\Users\agungsetiawan\Documents\Visual Studio 2013\Projects\Elshanum-Kasir\ElshanumKasir\bin\Debug\ElshanumKasir.exe.config
+C:\Users\agungsetiawan\Documents\Visual Studio 2013\Projects\Elshanum-Kasir\ElshanumKasir\bin\Debug\ElshanumKasir.exe
+C:\Users\agungsetiawan\Documents\Visual Studio 2013\Projects\Elshanum-Kasir\ElshanumKasir\bin\Debug\ElshanumKasir.pdb
+C:\Users\agungsetiawan\Documents\Visual Studio 2013\Projects\Elshanum-Kasir\ElshanumKasir\bin\Debug\MySql.Data.dll
+C:\Users\agungsetiawan\Documents\Visual Studio 2013\Projects\Elshanum-Kasir\ElshanumKasir\obj\Debug\ElshanumKasir.csprojResolveAssemblyReference.cache
+C:\Users\agungsetiawan\Documents\Visual Studio 2013\Projects\Elshanum-Kasir\ElshanumKasir\obj\Debug\ElshanumKasir.Properties.Resources.resources
+C:\Users\agungsetiawan\Documents\Visual Studio 2013\Projects\Elshanum-Kasir\ElshanumKasir\obj\Debug\ElshanumKasir.csproj.GenerateResource.Cache
+C:\Users\agungsetiawan\Documents\Visual Studio 2013\Projects\Elshanum-Kasir\ElshanumKasir\obj\Debug\ElshanumKasir.exe
+C:\Users\agungsetiawan\Documents\Visual Studio 2013\Projects\Elshanum-Kasir\ElshanumKasir\obj\Debug\ElshanumKasir.pdb
