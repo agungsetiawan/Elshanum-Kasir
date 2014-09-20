@@ -9,57 +9,54 @@ using System.Threading.Tasks;
 
 namespace ElshanumKasir.Service
 {
-    class BarangService
+    class PelangganService
     {
-        private BarangDao _barangDao;
         private MySqlConnection _connection;
-        public BarangService(MySqlConnection connection)
+        private PelangganDao _pelangganDao;
+
+        public PelangganService(MySqlConnection connection)
         {
-           this. _connection = connection;
-           _barangDao = new BarangDao(_connection);
+            this._connection = connection;
+            _pelangganDao = new PelangganDao(_connection);
         }
 
-        public Barang Save(Barang barang)
+        public Pelanggan Save(Pelanggan pelanggan)
         {
             _connection.Open();
-
             MySqlTransaction transaction = _connection.BeginTransaction();
 
             try
             {
-                Barang barangReturn = _barangDao.Save(barang, transaction);
+                Pelanggan pelangganReturn = _pelangganDao.Save(pelanggan, transaction);
                 transaction.Commit();
 
-                return barangReturn;
+                return pelangganReturn;
             }
             catch(MySqlException ex)
             {
                 transaction.Rollback();
             }
-            
 
             _connection.Close();
 
             return null;
         }
 
-        public Barang Update(Barang barang)
+        public Pelanggan Update(Pelanggan pelanggan)
         {
             _connection.Open();
             MySqlTransaction transaction = _connection.BeginTransaction();
 
             try
             {
-                Barang barangReturn = _barangDao.Update(barang, transaction);
+                Pelanggan pelangganReturn = _pelangganDao.Update(pelanggan,transaction);
                 transaction.Commit();
-
-                return barangReturn;
+                return pelangganReturn;
             }
-            catch (MySqlException ex)
+            catch(MySqlException ex)
             {
                 transaction.Rollback();
             }
-
 
             _connection.Close();
 
@@ -69,14 +66,15 @@ namespace ElshanumKasir.Service
         public void Delete(int id)
         {
             _connection.Open();
+
             MySqlTransaction transaction = _connection.BeginTransaction();
 
             try
             {
-                _barangDao.Delete(id, transaction);
+                _pelangganDao.Delete(id,transaction);
                 transaction.Commit();
             }
-            catch (MySqlException ex)
+            catch(MySqlException ex)
             {
                 transaction.Rollback();
             }
@@ -84,36 +82,29 @@ namespace ElshanumKasir.Service
             _connection.Close();
         }
 
-        public List<Barang> Find()
+        public List<Pelanggan> FindWithMember()
         {
             _connection.Open();
-            List<Barang> barangs = _barangDao.Find();
+            List<Pelanggan> pelanggans = _pelangganDao.FindWithMember();
             _connection.Close();
-            return barangs;
+            return pelanggans;
         }
 
-        public Barang FindOne(int id)
+        public List<Pelanggan> FindWithMemberByNama(string nama)
         {
             _connection.Open();
-            Barang barang = _barangDao.FindOne(id);
+            List<Pelanggan> pelanggans = _pelangganDao.FindWithMemberByNama(nama);
             _connection.Close();
-            return barang;
+            return pelanggans;
         }
 
-        public Barang FindOneWithKategori(int id)
+        public Pelanggan FindOneWithMember(int id)
         {
             _connection.Open();
-            Barang barang = _barangDao.FindOneWithKategori(id);
+            Pelanggan pelanggan = _pelangganDao.FindOneWithMember(id);
             _connection.Close();
-            return barang;
+            return pelanggan;
         }
 
-        public List<Barang> FindWithKategori()
-        {
-            _connection.Open();
-            List<Barang> barangs = _barangDao.FindWithKategori();
-            _connection.Close();
-            return barangs;
-        }
     }
 }

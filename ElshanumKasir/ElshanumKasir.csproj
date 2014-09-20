@@ -69,8 +69,17 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\BarangDao.cs" />
     <Compile Include="Repository\KategoriDao.cs" />
+    <Compile Include="Repository\MemberDao.cs" />
+    <Compile Include="Repository\PelangganDao.cs" />
+    <Compile Include="Repository\PenggunaDao.cs" />
+    <Compile Include="Repository\SupplierDao.cs" />
     <Compile Include="Service\BarangService.cs" />
     <Compile Include="Service\KategoriService.cs" />
+    <Compile Include="Service\MemberService.cs" />
+    <Compile Include="Service\PelangganService.cs" />
+    <Compile Include="Service\PenggunaService.cs" />
+    <Compile Include="Service\SupplierService.cs" />
+    <Compile Include="Utility\PasswordHash.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

@@ -9,60 +9,54 @@ using System.Threading.Tasks;
 
 namespace ElshanumKasir.Service
 {
-    class BarangService
+    class PenggunaService
     {
-        private BarangDao _barangDao;
         private MySqlConnection _connection;
-        public BarangService(MySqlConnection connection)
+        private PenggunaDao _penggunaDao;
+
+        public PenggunaService(MySqlConnection connection)
         {
-           this. _connection = connection;
-           _barangDao = new BarangDao(_connection);
+            this._connection = connection;
+            _penggunaDao = new PenggunaDao(_connection);
         }
 
-        public Barang Save(Barang barang)
+        public Pengguna Save(Pengguna pengguna)
         {
             _connection.Open();
-
             MySqlTransaction transaction = _connection.BeginTransaction();
 
             try
             {
-                Barang barangReturn = _barangDao.Save(barang, transaction);
+                Pengguna penggunaReturn = _penggunaDao.Save(pengguna, transaction);
                 transaction.Commit();
-
-                return barangReturn;
+                return penggunaReturn;
             }
             catch(MySqlException ex)
             {
                 transaction.Rollback();
             }
-            
 
             _connection.Close();
-
             return null;
         }
 
-        public Barang Update(Barang barang)
+        public Pengguna Update(Pengguna pengguna)
         {
             _connection.Open();
             MySqlTransaction transaction = _connection.BeginTransaction();
 
             try
             {
-                Barang barangReturn = _barangDao.Update(barang, transaction);
+                Pengguna penggunaReturn = _penggunaDao.Update(pengguna, transaction);
                 transaction.Commit();
-
-                return barangReturn;
+                return penggunaReturn;
             }
-            catch (MySqlException ex)
+            catch(MySqlException ex)
             {
                 transaction.Rollback();
             }
 
-
             _connection.Close();
-
             return null;
         }
 
@@ -73,10 +67,10 @@ namespace ElshanumKasir.Service
 
             try
             {
-                _barangDao.Delete(id, transaction);
+                _penggunaDao.Delete(id,transaction);
                 transaction.Commit();
             }
-            catch (MySqlException ex)
+            catch(MySqlException ex)
             {
                 transaction.Rollback();
             }
@@ -84,36 +78,20 @@ namespace ElshanumKasir.Service
             _connection.Close();
         }
 
-        public List<Barang> Find()
+        public List<Pengguna> FindWithRole()
         {
             _connection.Open();
-            List<Barang> barangs = _barangDao.Find();
+            List<Pengguna> penggunas = _penggunaDao.FindWithRole();
             _connection.Close();
-            return barangs;
+            return penggunas;
         }
 
-        public Barang FindOne(int id)
+        public Pengguna FindOneWithRole(int id)
         {
             _connection.Open();
-            Barang barang = _barangDao.FindOne(id);
+            Pengguna pengguna = _penggunaDao.FindOneWithRole(id);
             _connection.Close();
-            return barang;
-        }
-
-        public Barang FindOneWithKategori(int id)
-        {
-            _connection.Open();
-            Barang barang = _barangDao.FindOneWithKategori(id);
-            _connection.Close();
-            return barang;
-        }
-
-        public List<Barang> FindWithKategori()
-        {
-            _connection.Open();
-            List<Barang> barangs = _barangDao.FindWithKategori();
-            _connection.Close();
-            return barangs;
+            return pengguna;
         }
     }
 }
